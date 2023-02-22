@@ -47,7 +47,9 @@ class oauth2Controller extends baseController {
           redirect_uri: encodeURIComponent(redirectUri)
         }, authArgs)
       });
-
+      console.error('oauth2Callback.status.error', tokenResult)
+      console.error('oauth2Callback.status.error', tokenResult.data)
+      console.error('oauth2Callback.status.error', tokenResult.data.access_token)
       if (tokenResult.status === 200) {
         ctx.redirect('/api/user/login_by_token?token=' + tokenResult.data.access_token);
       } else {
